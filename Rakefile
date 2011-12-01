@@ -25,7 +25,7 @@ def link_dir(dir)
   if !File.directory?("#{TARGET_DIR}/#{dir}")
     File.symlink("#{SOURCE_DIR}/#{dir}", "#{TARGET_DIR}/#{dir}")
   else
-    puts "#{file} already exists in #{SOURCE_DIR}"
+    puts "#{dir} already exists in #{SOURCE_DIR}"
   end
 end
 
