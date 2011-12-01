@@ -1,9 +1,16 @@
+set nocompatible
+
+call pathogen#infect()
+
+filetype plugin indent on
+
 colorscheme slate
 
 syntax enable
 
 set showmode
 set showcmd
+set showtabline=2
 
 set wildmenu
 set wildmode=full
@@ -29,8 +36,8 @@ set foldlevel=1
 runtime ftplugin/man.vim
 
 if has("gui_running")
-        set guioptions=-t
-        set transparency=5
-        set gfn=Monaco:h14
+  set guioptions=-t
+  set transparency=5
+  set gfn=Monaco:h14
 endif
 
