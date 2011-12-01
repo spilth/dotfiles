@@ -5,20 +5,27 @@ task :default => :link
 
 desc "Link dotfiles to DropBox"
 task :link do
+  puts SOURCE_DIR
+  puts TARGET_DIR
+
   link_file(".vimrc")
-	link_dir(".vim")
+  link_dir(".vim")
 end
 
 def link_file(file)
-  if !File.exists?("#{SOURCE_DIR}/#{file}")
-		File.symlink("#{SOURCE_DIR}/#{file}", "#{TARGET_DIR}/#{file}")
-	end
+  if !File.exists?("#{TARGET_DIR}/#{file}")
+    File.symlink("#{SOURCE_DIR}/#{file}", "#{TARGET_DIR}/#{file}")
+  else
+    puts "#{file} already exists in #{SOURCE_DIR}"
+  end
+
 end
 
 def link_dir(dir)
-	if !File.directory?("#{SOURCE_DIR}/#{dir}")
-	  File.symlink("#{SOURCE_DIR}/#{dir}", "#{TARGET_DIR}/#{dir}")
-	end
+  if !File.directory?("#{TARGET_DIR}/#{dir}")
+    File.symlink("#{SOURCE_DIR}/#{dir}", "#{TARGET_DIR}/#{dir}")
+  else
+    puts "#{file} already exists in #{SOURCE_DIR}"
+  end
 end
-
 
