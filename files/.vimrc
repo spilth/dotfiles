@@ -35,9 +35,22 @@ set foldlevel=1
 
 runtime ftplugin/man.vim
 
+" MacVim Options
 if has("gui_running")
   set guioptions=-t
   set transparency=5
   set gfn=Monaco:h14
 endif
+
+" NERDTree
+let NERDTreeShowHidden=1
+
+" NERDTree - Automatically start NERDTree if no file provided on command line
+function! StartUp()
+  if 0 == argc()
+    NERDTree
+  end
+endfunction
+
+autocmd VimEnter * call StartUp()
 
