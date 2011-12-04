@@ -16,6 +16,7 @@ set wildmenu
 set wildmode=full
 
 set ruler
+set number
 
 set tabstop=2
 set autoindent
