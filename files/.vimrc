@@ -24,6 +24,8 @@ set expandtab
 set wrap
 
 set hlsearch
+set incsearch
+
 set ignorecase
 set smartcase
 
