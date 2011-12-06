@@ -13,7 +13,7 @@ set showcmd
 set showtabline=2
 
 set wildmenu
-set wildmode=full
+set wildmode=list:longest
 
 set ruler
 set number
