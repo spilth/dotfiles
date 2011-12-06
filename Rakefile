@@ -8,6 +8,7 @@ task :link do
   puts SOURCE_DIR
   puts TARGET_DIR
 
+  link_file(".bash_profile")
   link_file(".bashrc")
   link_file(".vimrc")
   link_dir(".vim")
