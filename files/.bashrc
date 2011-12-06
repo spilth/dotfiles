@@ -8,8 +8,7 @@ export PS1='\w \@ \$ '
 
 set -o vi
 
-if [ -e ~/.bashrc_local ]
-then
-  source ~/.bashrc_local
+if [ -f ~/.bashrc_local ]; then
+        . ~/.bashrc_local
 fi
 
