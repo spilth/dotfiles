@@ -4,7 +4,7 @@ call pathogen#infect()
 
 filetype plugin indent on
 
-colorscheme slate
+colorscheme rdark
 
 syntax enable
 
@@ -41,7 +41,7 @@ runtime ftplugin/man.vim
 " MacVim Options
 if has("gui_running")
   set guioptions=-t
-  set transparency=5
+  set transparency=1
   set gfn=Monaco:h14
 endif
 
