@@ -12,6 +12,7 @@ task :link do
   link_file(".bashrc")
   link_file(".vimrc")
   link_dir(".vim")
+  link_file(".gvimrc")
 end
 
 def link_file(file)
