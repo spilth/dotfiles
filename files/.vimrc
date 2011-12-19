@@ -23,6 +23,7 @@ set tabstop=2
 set autoindent
 set expandtab
 set wrap
+set shiftwidth=2
 
 set hlsearch
 set incsearch
