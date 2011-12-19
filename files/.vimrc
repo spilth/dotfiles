@@ -2,8 +2,9 @@ set nocompatible
 
 call pathogen#infect()
 
-
-filetype plugin indent on
+if has("autocmd")
+  filetype plugin indent on
+end
 
 colorscheme rdark
 
@@ -46,13 +47,4 @@ if has("gui_running")
   set transparency=1
   set gfn=Monaco:h14
 endif
-
-" Command-T
-
-" Map Command-T
-nnoremap <silent> :t :CommandT<CR>
-nnoremap <silent> :b :CommandTBuffer<CR>
-
-let g:CommandTAcceptSelectionMap = '<C-t>'
-let g:CommandTAcceptSelectionTabMap = '<CR>'
 

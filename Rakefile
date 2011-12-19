@@ -13,10 +13,12 @@ task :link do
   link_file(".vimrc")
   link_dir(".vim")
   link_file(".gvimrc")
+  link_file(".gitconfig")
 end
 
 def link_file(file)
   if !File.exists?("#{TARGET_DIR}/#{file}")
+    puts "Symlinking #{SOURCE_DIR}/#{file} as #{TARGET_DIR}/#{file}"
     File.symlink("#{SOURCE_DIR}/#{file}", "#{TARGET_DIR}/#{file}")
   else
     puts "#{file} already exists in #{SOURCE_DIR}"
@@ -26,6 +28,7 @@ end
 
 def link_dir(dir)
   if !File.directory?("#{TARGET_DIR}/#{dir}")
+    puts "Symlinking #{SOURCE_DIR}/#{dir} as #{TARGET_DIR}/#{dir}"
     File.symlink("#{SOURCE_DIR}/#{dir}", "#{TARGET_DIR}/#{dir}")
   else
     puts "#{dir} already exists in #{SOURCE_DIR}"

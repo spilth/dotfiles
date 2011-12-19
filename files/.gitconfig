@@ -1,0 +1,13 @@
+[user]
+	name = Brian Kelly
+	email = polymonic@gmail.com
+[color]
+  ui = auto
+[alias]
+  a = add
+  dc = diff --cached
+  cm = commit -m
+  s = status
+[diff]
+[merge]
+
