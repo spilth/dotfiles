@@ -41,6 +41,8 @@ set foldlevel=1
 
 runtime ftplugin/man.vim
 
+nmap <leader>ff :FufFile **/<CR>
+
 " MacVim Options
 if has("gui_running")
   set guioptions=-t
