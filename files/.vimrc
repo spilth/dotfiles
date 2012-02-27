@@ -43,10 +43,15 @@ runtime ftplugin/man.vim
 
 nmap <leader>ff :FufFile **/<CR>
 
+au BufRead,BufNewFile *.rabl setf ruby
+
 " MacVim Options
 if has("gui_running")
   set guioptions=-t
   set transparency=1
   set gfn=Monaco:h14
 endif
+
+" For vim-ruby-doc Browser Opening
+let g:ruby_doc_command='open'
 
