@@ -14,6 +14,7 @@ task :link do
   link_dir(".vim")
   link_file(".gvimrc")
   link_file(".gitconfig")
+  link_file(".tmux.conf")
 end
 
 def link_file(file)
