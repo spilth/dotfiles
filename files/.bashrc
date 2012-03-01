@@ -1,18 +1,21 @@
+# General Shell Settings
+
+export SHELL=bash
+export PS1='\w \@ \$ '
+set -o vi
+
+# Preferred Editor
+
 export EDITOR=vim
 export VISUAL=vim
-
 export SVN_EDITOR=vim
 export GIT_EDITOR=vim
 
-export PS1='\w \@ \$ '
+alias v="vim"
+alias e="vim"
+alias edit="vim"
 
-set -o vi
-
-# General Aliases
-
-alias v="mvim"
-alias e="mvim"
-alias edit="mvim"
+# Version Control Aliases
 
 alias g="git"
 alias s="svn"
@@ -21,6 +24,14 @@ alias s="svn"
 
 alias r="rails"
 alias be="bundle exec"
+
+# Ruby Version Manager
+
+[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+
+# Terminal Multiplexer
+
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
 # Pull in local bashrc file for computer-specific settings
 

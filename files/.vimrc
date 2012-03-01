@@ -42,6 +42,9 @@ set foldlevel=1
 runtime ftplugin/man.vim
 
 nmap <leader>ff :FufFile **/<CR>
+nmap <leader>fr :FufRenewCache <CR>
+nmap <leader>ft :tabnew <bar>:FufFile **/<CR>
+nmap <leader>r :source ~/.vimrc<CR>
 
 au BufRead,BufNewFile *.rabl setf ruby
 
