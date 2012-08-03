@@ -11,3 +11,5 @@
 [diff]
 [merge]
 
+[core]
+	excludesfile = /Users/bkelly1271/.gitignore
