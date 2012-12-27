@@ -2,6 +2,7 @@
 
 export SHELL=bash
 export PS1='\w \@ \$ '
+export CLICOLOR=1
 set -o vi
 
 # Preferred Editor
@@ -10,6 +11,8 @@ export EDITOR=vim
 export VISUAL=vim
 export SVN_EDITOR=vim
 export GIT_EDITOR=vim
+
+# Editor Aliases
 
 alias v="vim"
 alias e="vim"
@@ -27,7 +30,9 @@ alias be="bundle exec"
 
 # Ruby Version Manager
 
-[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # Terminal Multiplexer
 
@@ -36,6 +41,6 @@ alias be="bundle exec"
 # Pull in local bashrc file for computer-specific settings
 
 if [ -f ~/.bashrc_local ]; then
-        . ~/.bashrc_local
+  . ~/.bashrc_local
 fi
 

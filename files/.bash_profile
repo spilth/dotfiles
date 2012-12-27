@@ -1,6 +1,7 @@
 if [ -f ~/.bashrc ]; then
-        . ~/.bashrc
+  . ~/.bashrc
 fi
 
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+### Added by the Heroku Toolbelt
+export PATH=/usr/local/heroku/bin:/usr/local/bin:$PATH
 
