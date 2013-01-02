@@ -28,6 +28,11 @@ alias s="svn"
 alias r="rails"
 alias be="bundle exec"
 
+# tmux Project Aliases
+
+alias spilth="tmuxinator spilth"
+alias devlog="tmuxinator devlog"
+
 # Ruby Version Manager
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"

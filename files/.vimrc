@@ -6,7 +6,7 @@ if has("autocmd")
   filetype plugin indent on
 end
 
-colorscheme wombat256
+colorscheme railscasts
 
 syntax enable
 
