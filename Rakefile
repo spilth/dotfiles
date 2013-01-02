@@ -1,24 +1,18 @@
 SOURCE_DIR = "#{ENV['HOME']}/Dropbox/dotfiles/files"
 TARGET_DIR = "#{ENV['HOME']}/"
 
+FILES = %w[.bashrc .bash_profile .vimrc .gitconfig .gitignore .tmux.conf]
+DIRS = %w[.vim .tmuxinator]
+
 task :default => :link
 
 desc "Link dotfiles to DropBox"
 task :link do
   puts "Souce Directory: #{SOURCE_DIR}"
   puts "Target Directory: #{TARGET_DIR}"
-
-  link_file(".bashrc")
-  link_file(".bash_profile")
-
-  link_file(".vimrc")
-  link_dir(".vim")
-
-  link_file(".gitconfig")
-  link_file(".gitignore")
-
-  link_file(".tmux.conf")
-  link_dir(".tmuxinator")
+    
+  FILES.each { |file| link_file(file) }
+  DIRS.each { |dir| link_dir(dir) }
 end
 
 def link_file(file)
