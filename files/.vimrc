@@ -1,9 +1,6 @@
-set nocompatible " Don't use vi compatibility
-set noswapfile   " Don't use swap files
-set shortmess+=I " Don't display startup messages
-set t_Co=256     " Set terminal's number of colors
+set nocompatible          " Don't use vi compatibility
 
-call pathogen#infect() " Run the Pathogen Plugin manager
+call pathogen#infect()    " Run the Pathogen Plugin manager
 
 if has("autocmd")
   filetype plugin indent on
@@ -14,6 +11,10 @@ colorscheme wombat256
 syntax enable
 
 set clipboard=unnamed
+
+set noswapfile            " Don't use swap files
+set shortmess+=I          " Don't display startup messages
+set t_Co=256              " Set terminal's number of colors
 
 set showmode              " Show mode in status bar
 set showcmd
@@ -47,7 +48,7 @@ set laststatus=2
 
 " === MAPPINGS ===
 
-" Easily reload .vimrc with \R
+" Easily reload .vimrc with \r
 nmap <leader>r :source ~/.vimrc<CR>
 
 " Disable Arrow Keys
@@ -55,34 +56,39 @@ map <left> <nop>
 map <right> <nop>
 map <up> <nop>
 map <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
-imap <up> <nop>
-imap <down> <nop>
+"imap <left> <nop>
+"imap <right> <nop>
+"imap <up> <nop>
+"imap <down> <nop>
 
-" Toggle spell checking
+" Toggle spell checking with \s
 map <leader>s :set spell!<CR>
 
 " Disable search highlighting by pressing Return
 nnoremap <CR> :nohlsearch<cr>
 
-" Control-Space to Leave Insert Mode
-imap <c-Space> <esc>
-
-" Move around splits with <c-hjkl>
+" Move between splits with <c-hjkl>
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-" Shortcut to rapidly toggle `set list`
+" \h and \v to create horizontal and vertical splits
+nmap <leader>h :new<CR>
+nmap <leader>v :vnew<CR>
+
+" \l to toggle hidden characters
 nmap <leader>l :set list!<CR>
 
+" FuzzyFinder Shortcuts
 nmap <leader>ff :FufFile **/<CR>
 nmap <leader>fr :FufRenewCache <CR>
 nmap <leader>ft :tabnew <bar>:FufFile **/<CR>
 
+" Sort with F5
 map <F5> :sort<CR>
+
+" Sort and remove duplicates with Shift-F5
 map <S-F5> :sort u<CR>
 
 " MULTIPURPOSE TAB KEY
