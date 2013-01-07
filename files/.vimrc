@@ -1,30 +1,35 @@
 set nocompatible          " Don't use vi compatibility
 
+colorscheme railscasts    " Set the color scheme
+
+syntax enable             " Turn on syntax highlighting
+
 call pathogen#infect()    " Run the Pathogen Plugin manager
 
-if has("autocmd")
-  filetype plugin indent on
-end
+filetype plugin indent on " Enable file type detection and plugin/indent files
 
-colorscheme railscasts
-
-syntax enable
-
-set clipboard=unnamed
+if $TMUX == ''
+  set clipboard+=unnamed
+endif
 
 set noswapfile            " Don't use swap files
-set shortmess+=I          " Don't display startup messages
+set shortmess+=I          " Don't display intro message
 set t_Co=256              " Set terminal's number of colors
 
-set showmode              " Show mode in status bar
-set showcmd
+set laststatus=2          " Always show the status line
 set showtabline=2         " Always show the tab line
+
+set showmode              " Show mode in status bar
+set showcmd               " Show current vim command in status bar
+set showmatch             " Show matching parens/brackets
 
 set wildmenu              " Enable tab-completion for command-line mode
 set wildmode=list:longest " Complete till longest common string. 
 
 set ruler                 " Show line and column number of cursor
 set number                " Show line numbers along left side of window
+
+set backspace=2           " Allow backspacking over everything
 
 set tabstop=2             " Tabs are 2 spaces
 set shiftwidth=2          " Auto indent with 2 spaces
@@ -39,19 +44,17 @@ set smartcase             " Don't ignore case if search has uppercase letters
 
 set spelllang=en_us       " Use en_us dictionary for spell check
 
-set foldmethod=indent
-set foldnestmax=10
-set nofoldenable
+set foldmethod=indent     " Lines with equal indent for a fold
+set foldnestmax=10        " Maximum nesting of folds for indent and syntax
+set nofoldenable          " All folds are open by default
 set foldlevel=1
-
-set laststatus=2
 
 " === MAPPINGS ===
 
 " Easily reload .vimrc with \r
 nmap <leader>r :source ~/.vimrc<CR>
 
-" Disable Arrow Keys
+" Disable Arrow Keys 
 map <left> <nop>
 map <right> <nop>
 map <up> <nop>
@@ -60,9 +63,6 @@ map <down> <nop>
 "imap <right> <nop>
 "imap <up> <nop>
 "imap <down> <nop>
-
-" Toggle spell checking with \s
-map <leader>s :set spell!<CR>
 
 " Disable search highlighting by pressing Return
 nnoremap <CR> :nohlsearch<cr>
@@ -77,8 +77,14 @@ nnoremap <c-l> <c-w>l
 nmap <leader>h :new<CR>
 nmap <leader>v :vnew<CR>
 
+" \s to toggle spell checking
+map <leader>s :set spell!<CR>
+
 " \l to toggle hidden characters
 nmap <leader>l :set list!<CR>
+
+" \p to toggle paste mode
+nmap <leader>p :set paste!<CR>
 
 " FuzzyFinder Shortcuts
 nmap <leader>ff :FufFile **/<CR>
@@ -90,6 +96,9 @@ map <F5> :sort<CR>
 
 " Sort and remove duplicates with Shift-F5
 map <S-F5> :sort u<CR>
+
+" \= to autoformat entire document and return to where you were
+map <leader>= mzggVG='z
 
 " MULTIPURPOSE TAB KEY
 " Indent if we're at the beginning of a line. Else, do completion.
@@ -104,9 +113,12 @@ endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
 
-runtime ftplugin/man.vim
+if has("autocmd") " If vim was compiled with the automcmd feature
 
-au BufRead,BufNewFile *.rabl setf ruby
+  " Automatically set filetype to ruby when loading or creating a .rabl file
+  au BufRead,BufNewFile *.rabl setf ruby
+
+end
 
 " For vim-ruby-doc Browser Opening
 let g:ruby_doc_command='open'
